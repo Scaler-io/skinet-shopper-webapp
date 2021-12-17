@@ -3,8 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import {environment as env}  from "../environments/environment";
-import { Pagination } from './models/pagination';
-import { Product } from './models/product';
+import { Pagination } from './shared/models/pagination';
+import { Product } from './shared/models/product';
 
 @Component({
   selector: 'app-root',

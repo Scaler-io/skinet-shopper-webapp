@@ -4,11 +4,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './ui/nav-bar/nav-bar.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule, 
+    BrowserAnimationsModule, 
+    HttpClientModule,
+    CoreModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
