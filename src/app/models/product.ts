@@ -1,4 +1,4 @@
-import {MetaData} from './MetaData';
+import {ProductMetaData} from './productMetaData';
 
 export interface Product {
     id: number;
@@ -8,5 +8,5 @@ export interface Product {
     pictureUrl: string;
     productType: string;
     productBrand: string;
-    metadata: MetaData;
+    metadata: ProductMetaData;
 }

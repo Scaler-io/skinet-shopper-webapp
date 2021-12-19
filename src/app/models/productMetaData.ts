@@ -1,4 +1,4 @@
-export interface MetaData{
+export interface ProductMetaData{
     createdBy: string;
     createdAt: Date;
     lastModifiedAt: Date;
