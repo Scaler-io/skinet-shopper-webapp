@@ -31,3 +31,10 @@
         right: -12px;
     }
 }
+
+a.nav-link{
+    color: #343a40;
+    &.active{
+        color: orange!important;
+    }
+}
