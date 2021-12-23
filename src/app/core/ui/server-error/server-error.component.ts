@@ -14,7 +14,6 @@ export class ServerErrorComponent implements OnInit  {
     this.error = navigation?.extras?.state?.error;
   }
 
-
   ngOnInit(): void {
   }
 
