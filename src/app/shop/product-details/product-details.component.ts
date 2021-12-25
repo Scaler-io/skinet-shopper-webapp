@@ -13,19 +13,20 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
 
   constructor(private shopService: ShopService,
-    private route: ActivatedRoute,
-    private bradcrumService: BreadcrumbService) { }
+  private route: ActivatedRoute,
+  private breadcrumService: BreadcrumbService) {}
 
   ngOnInit(): void {
+    this.breadcrumService.set('@productDetails', 'Loading...');
     this.loadProduct();
   }
-
+  
   loadProduct(): void {
     var productId = (+this.route.snapshot.paramMap.get('id'));
     this.shopService.getProduct(productId).subscribe({
       next: (product: Product) => {
         this.product = product;
-        this.bradcrumService.set('@productDetails', product.name);
+        this.breadcrumService.set('@productDetails', product.name);
       },
       error: (error: any) => console.log(error)
     });
