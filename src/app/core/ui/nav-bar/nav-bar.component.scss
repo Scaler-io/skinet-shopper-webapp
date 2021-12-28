@@ -38,3 +38,9 @@ a.nav-link{
         color: orange!important;
     }
 }
+
+a.basket-active{
+    & .fa-shopping-cart{
+        color: orange!important
+    }
+}
