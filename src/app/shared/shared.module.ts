@@ -6,12 +6,16 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { OrderSummeryComponent } from './components/order-summery/order-summery.component';
+import { PrependRupeeSymbolPipe } from './pipes/prepend-rupee-symbol.pipe';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    OrderSummeryComponent,
+    PrependRupeeSymbolPipe
   ],
   imports: [
     CommonModule,
@@ -26,6 +30,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     // components
     PagingHeaderComponent,
     PaginatorComponent,
+    OrderSummeryComponent,
+    PrependRupeeSymbolPipe
   ]
 })
 export class SharedModule { }
