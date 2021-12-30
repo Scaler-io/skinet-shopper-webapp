@@ -6,12 +6,20 @@
     
         <div class="col-md-6">
             <h3>{{product.name}}</h3>
-            <p style="font-size: 2em;">{{product.price | currency}}</p>
+            <p style="font-size: 2em;">{{product.price | rupee }}</p>
             <div class="d-flex justify-content-start align-items-center">
-                <i class="fa fa-minus-circle  text-warning cart-item-control-icon mx-2"></i>
-                <span class="fw-bold" style="font-size: 1.3em;">2</span>
-                <i class="fa fa-plus-circle mx-2 text-warning cart-item-control-icon"></i>
-                <button style="margin-left: 20px;" type="button" class="btn btn-outline-primary">Add to Cart</button>
+                <i class="fa fa-minus-circle  text-warning cart-item-control-icon mx-2"
+                    (click)="onDecreamentItem()"
+                ></i>
+                <span class="fw-bold" style="font-size: 1.3em;">{{quantity}}</span>
+                <i class="fa fa-plus-circle mx-2 text-warning cart-item-control-icon"
+                    (click)="onIncreamentItem()"
+                ></i>
+                <button style="margin-left: 20px;"
+                    type="button" 
+                    class="btn btn-outline-primary"
+                    (click)="onAddItemToBasket()"
+                >Add to Cart</button>
             </div>
         </div>
     
