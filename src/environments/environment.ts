@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  skinetCatalogApiBase : 'http://localhost:5000/api/v1/'
+  skinetCatalogApiBase : 'http://localhost:5000/api/v1/',
+  skinetCatalogApiBaseV2: 'http://localhost:5000/api/v2/',
 };
 
 /*

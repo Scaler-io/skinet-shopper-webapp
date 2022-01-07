@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="d-flex justify-content-center mt-5 align-items-center">
+    <div class="col-md-3">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginCreds()">
+            <div class="text-center">
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" formControlName="email" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+              <skinet-error-message [form]="loginForm" control="email"></skinet-error-message>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+              <skinet-error-message [form]="loginForm" control="password"></skinet-error-message>
+            </div>
+        
+            <button [disabled]="loginForm.invalid" class="w-100 btn btn-primary" type="submit">Sign in</button>
+            <div class="text-center">
+                <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+            </div>
+        </form>
+    </div>
+</div>
+

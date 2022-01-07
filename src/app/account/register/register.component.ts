@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-register',
+  selector: 'skinet-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
