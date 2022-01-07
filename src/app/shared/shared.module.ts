@@ -11,6 +11,7 @@ import { OrderSummeryComponent } from './components/order-summery/order-summery.
 import { PrependRupeeSymbolPipe } from './pipes/prepend-rupee-symbol.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { TextInputComponent } from './components/text-input/text-input.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     PaginatorComponent,
     OrderSummeryComponent,
     PrependRupeeSymbolPipe,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    TextInputComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     PaginatorComponent,
     OrderSummeryComponent,
     PrependRupeeSymbolPipe,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    TextInputComponent
   ]
 })
 export class SharedModule { }
