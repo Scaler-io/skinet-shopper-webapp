@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
       error: (error) => {
         console.log(error);
         this.loginForm = AccountFormGroupHelper.applyUnauthorisedBackendError(
-          this.loginForm, 'email', true
+          this.loginForm, 
+          'email', 
+          true
         );
       }
     });
