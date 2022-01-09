@@ -1,5 +1,7 @@
 <ng-container *ngIf="(breadcrumb$ | async) as breadcrumbs">
-    <section *ngIf="breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length-1].label !== 'Home'" class="section-header py-5">
+    <section *ngIf="breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length-1].label !== 'Home'" 
+            class="section-header py-5"
+        >
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-md-9 mt-5">

@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center mt-5 align-items-center">
+    <div class="col-md-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegistrationDetails()">
+            <div class="text-center">
+                <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+            </div>
+            
+            <skinet-text-input formControlName="email" type="email" label="Email Address">
+                <skinet-error-message [form]="registerForm" control="email"></skinet-error-message>
+            </skinet-text-input>
+        
+            <skinet-text-input  formControlName="displayName" label="Display Name">
+                <skinet-error-message [form]="registerForm" control="displayName"></skinet-error-message>
+            </skinet-text-input>
+
+            <skinet-text-input  formControlName="newPassword" type="password" label="Password">
+                <skinet-error-message [form]="registerForm" control="newPassword"></skinet-error-message>
+            </skinet-text-input>
+            
+            <skinet-text-input  formControlName="passwordConfirm" type="password" label="Confirm Password">
+                <skinet-error-message [form]="registerForm" control="passwordConfirm"></skinet-error-message>
+            </skinet-text-input>
+            
+            <button class="w-100 btn btn-primary" type="submit">Sign up</button>
+            
+            <div class="text-center">
+                <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+            </div>
+        </form>
+    </div>
+</div>
+
