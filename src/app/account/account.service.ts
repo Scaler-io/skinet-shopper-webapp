@@ -20,6 +20,10 @@ export class AccountService {
   getCurrentUserValue(): IUser {
     return this.currentUserSource.value;
   }
+
+  checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.baseUrl}account/IsEmailTaken?email=${email}`);
+  }
   
   loadCurrentUser(token: string): Observable<void> {
     let headers = new HttpHeaders();

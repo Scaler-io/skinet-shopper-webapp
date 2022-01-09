@@ -10,8 +10,6 @@ import { validationMessage } from '../../validators/validationMessage';
 export class ErrorMessageComponent implements OnInit {
   @Input() public form: FormGroup;
   @Input() public control: string;
-  
-  errorMessage: string;
 
   constructor() { }
 
@@ -19,7 +17,7 @@ export class ErrorMessageComponent implements OnInit {
     this.getErrorMessage();
   }
 
-  private getErrorMessage(): void{
-    this.errorMessage = validationMessage(this.control, this.form);
+  public getErrorMessage(): string{
+    return validationMessage(this.control, this.form);
   }
 }

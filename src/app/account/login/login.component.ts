@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { validationMessage } from 'src/app/shared/validators/validationMessage';
 import { AccountService } from '../account.service';
+import { AccountFormGroupHelper } from '../form-groups/accountFormHelper';
 import { SkinetLoginFormGroup } from '../form-groups/skinetLogin';
 
 @Component({
@@ -21,11 +21,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLoginCreds(){
-    if(this.loginForm.valid){
-      this.accountService.login(this.loginForm.value).subscribe({
-        next: () => this.router.navigateByUrl('/shop'),
-        error: (error) => console.log(error)
-      });
-    }
+    this.loginForm.markAllAsTouched();
+    this.accountService.login(this.loginForm.value).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/shop')
+      },
+      error: (error) => {
+        console.log(error);
+        this.loginForm = AccountFormGroupHelper.applyUnauthorisedBackendError(
+          this.loginForm, 'email', true
+        );
+      }
+    });
   }
+
 }
