@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { map, Observable, of, ReplaySubject } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 import { IUser } from '../shared/models/user';
 
@@ -10,22 +10,24 @@ import { IUser } from '../shared/models/user';
 })
 export class AccountService {
   baseUrl: string = env.skinetCatalogApiBaseV2;
-  private currentUserSource: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null); 
+  private currentUserSource: ReplaySubject<IUser> = new ReplaySubject<IUser>(1); 
   currentUser$: Observable<IUser> = this.currentUserSource.asObservable(); 
 
 
   constructor(private http: HttpClient,
     private router: Router) { }
 
-  getCurrentUserValue(): IUser {
-    return this.currentUserSource.value;
-  }
-
+ 
   checkEmailExists(email: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.baseUrl}account/IsEmailTaken?email=${email}`);
   }
   
   loadCurrentUser(token: string): Observable<void> {
+    if(token === null){
+      this.currentUserSource.next(null);
+      return of(null);
+    }
+
     let headers = new HttpHeaders();
     headers = headers.set("Authorization", `Bearer ${token}`);
 

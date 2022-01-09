@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from '../account.service';
 import { AccountFormGroupHelper } from '../form-groups/accountFormHelper';
 import { SkinetLoginFormGroup } from '../form-groups/skinetLogin';
@@ -12,11 +12,14 @@ import { SkinetLoginFormGroup } from '../form-groups/skinetLogin';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  returnUrl: string;
 
   constructor(private accountService: AccountService,
-    private router: Router) { }
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/shop';
     this.loginForm = SkinetLoginFormGroup.createLoginForm(); 
   }
 
@@ -24,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.markAllAsTouched();
     this.accountService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigateByUrl('/shop')
+        this.router.navigateByUrl(this.returnUrl)
       },
       error: (error) => {
         console.log(error);
