@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
+import { CdkStepperModule } from '@angular/cdk/stepper'
 
 import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
@@ -12,6 +12,7 @@ import { PrependRupeeSymbolPipe } from './pipes/prepend-rupee-symbol.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     OrderSummeryComponent,
     PrependRupeeSymbolPipe,
     ErrorMessageComponent,
-    TextInputComponent
+    TextInputComponent,
+    StepperComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
     CarouselModule.forRoot(),
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    CdkStepperModule
   ],
   exports: [
     // modules
@@ -36,6 +39,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
     CarouselModule,
     ReactiveFormsModule,
     BsDropdownModule,
+    CdkStepperModule,
     
     // components
     PagingHeaderComponent,
@@ -43,7 +47,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     OrderSummeryComponent,
     PrependRupeeSymbolPipe,
     ErrorMessageComponent,
-    TextInputComponent
+    TextInputComponent,
+    StepperComponent
   ]
 })
 export class SharedModule { }

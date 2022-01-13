@@ -1,0 +1,13 @@
+.stepper-card{
+    border:none;
+    & .card-header{
+        background: rgb(250, 249, 249);
+        box-shadow: none;
+        border: none;
+    }
+}
+
+button.nav-link{
+    border-radius: 0;
+    width: 100%;
+}
