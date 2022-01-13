@@ -1,9 +1,9 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-8">
             <skinet-stepper [linearModeSelected]="false" #skinetStepper>
                 <cdk-step label="Address">
-                    <skinet-checkout-address></skinet-checkout-address>
+                    <skinet-checkout-address [checkoutForm]="checkoutForm"></skinet-checkout-address>
                 </cdk-step>
                 <cdk-step label="Delivery">
                     <skinet-checkout-delivery></skinet-checkout-delivery>

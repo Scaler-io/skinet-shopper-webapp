@@ -1,1 +1,41 @@
-<p>checkout-address works!</p>
+<div class="mt-4" [formGroup]="checkoutForm">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4>Shipping Address</h4>
+        <button class="btn btn-outline-success">
+            Save as defult address
+        </button>
+    </div>
+
+    <div class="row mt-4" formGroupName="addressFormGroup">
+        <div class="form-group col-md-6">
+            <skinet-text-input label="First Name" formControlName="firstName">
+                <skinet-error-message [form]="addressFormGroup" control="firstName"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+        <div class="form-group col-md-6">
+            <skinet-text-input label="Last Name" formControlName="lastName">
+                <skinet-error-message [form]="addressFormGroup" control="lastName"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+        <div class="form-group col-md-6">
+            <skinet-text-input label="Street" formControlName="street">
+                <skinet-error-message [form]="addressFormGroup" control="street"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+        <div class="form-group col-md-6">
+            <skinet-text-input label="City" formControlName="city">
+                <skinet-error-message [form]="addressFormGroup" control="city"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+        <div class="form-group col-md-6">
+            <skinet-text-input label="State" formControlName="state">
+                <skinet-error-message [form]="addressFormGroup" control="state"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+        <div class="form-group col-md-6">
+            <skinet-text-input label="Zip Code" formControlName="zipCode">
+                <skinet-error-message [form]="addressFormGroup" control="zipCode"></skinet-error-message>
+            </skinet-text-input>
+        </div>
+    </div>
+</div>

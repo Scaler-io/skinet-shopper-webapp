@@ -7,7 +7,7 @@ export class CheckoutFormGroupHelper {
     private static fb: FormBuilder = new FormBuilder();
     public static checkoutFormGroup: FormGroup;
     
-    public static createCheckoutPaymentFormGroup(): FormGroup {
+    public static createCheckoutFormGroup(): FormGroup {
         this.checkoutFormGroup = this.fb.group({
             addressFormGroup : CheckoutAddressFormGroupHelper.createCheckoutAddressForm(),
             deliveryFormGroup: CheckoutDeliveryFormGroupHelper.createCheckoutDeliveryFormGroup(),
@@ -16,4 +16,8 @@ export class CheckoutFormGroupHelper {
 
         return this.checkoutFormGroup;
     }
+
+    public static GetChildForm(parent: FormGroup, child: string): FormGroup {
+        return <FormGroup> parent?.get(child);
+    } 
 }

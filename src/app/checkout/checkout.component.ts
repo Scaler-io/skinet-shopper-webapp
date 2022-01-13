@@ -14,7 +14,7 @@ export class CheckoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.checkoutForm = CheckoutFormGroupHelper.createCheckoutPaymentFormGroup();
+    this.checkoutForm = CheckoutFormGroupHelper.createCheckoutFormGroup();
   }
 
 }

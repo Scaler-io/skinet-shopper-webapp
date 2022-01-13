@@ -6,7 +6,7 @@ export class CheckoutAddressFormGroupHelper {
 
     public static createCheckoutAddressForm(): FormGroup {
         this.checkoutAddressFormgroup = this.fb.group({
-            'firsName' : [null, Validators.required],
+            'firstName' : [null, Validators.required],
             'lastName' : [null, Validators.required],
             'street' : [null, Validators.required],
             'city' : [null, Validators.required],
