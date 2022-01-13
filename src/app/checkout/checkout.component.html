@@ -3,16 +3,16 @@
         <div class="col-md-8">
             <skinet-stepper [linearModeSelected]="false" #skinetStepper>
                 <cdk-step label="Address">
-                    Step 1
+                    <skinet-checkout-address></skinet-checkout-address>
                 </cdk-step>
                 <cdk-step label="Delivery">
-                    Step 2
+                    <skinet-checkout-delivery></skinet-checkout-delivery>
                 </cdk-step>
                 <cdk-step label="Review">
-                    Step 3
+                    <skinet-checkout-review></skinet-checkout-review>
                 </cdk-step>
                 <cdk-step label="Payment">
-                    Step 4
+                    <skinet-checkout-payment></skinet-checkout-payment>
                 </cdk-step>
             </skinet-stepper>
         </div>

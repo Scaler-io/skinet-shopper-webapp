@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { CheckoutFormGroupHelper } from './form-groups/checkoutFormGroupHelper';
 
 @Component({
   selector: 'skinet-checkout',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  checkoutForm: FormGroup;
+
 
   constructor() { }
 
   ngOnInit(): void {
+    this.checkoutForm = CheckoutFormGroupHelper.createCheckoutPaymentFormGroup();
   }
 
 }
