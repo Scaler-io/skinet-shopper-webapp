@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
     PrependRupeeSymbolPipe,
     ErrorMessageComponent,
     TextInputComponent,
-    StepperComponent
+    StepperComponent,
+    BasketSummaryComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
     CarouselModule.forRoot(),
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
-    CdkStepperModule
+    CdkStepperModule,
+    RouterModule
   ],
   exports: [
     // modules
@@ -48,7 +52,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
     PrependRupeeSymbolPipe,
     ErrorMessageComponent,
     TextInputComponent,
-    StepperComponent
+    StepperComponent,
+    BasketSummaryComponent
   ]
 })
 export class SharedModule { }
