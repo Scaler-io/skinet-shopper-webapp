@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { BasketService } from 'src/app/basket/basket.service';
 import { IBasket, IBasketItem } from '../../models/basket';
@@ -14,6 +14,7 @@ export class BasketSummaryComponent implements OnInit {
   @Output() decreament: Subject<IBasketItem> = new Subject<IBasketItem>();
   @Output() increament: Subject<IBasketItem> = new Subject<IBasketItem>();
   @Output() remove: Subject<IBasketItem> = new Subject<IBasketItem>();
+  @Input() isBasket: boolean = true;
  
 
   constructor(private basketService: BasketService) { }
