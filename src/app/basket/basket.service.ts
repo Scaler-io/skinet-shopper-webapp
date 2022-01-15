@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, map, Observable, Subscription } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 import { ProductToBasketItemMapper } from '../shared/mappers/product-to-basket-item.mapper';
 import { Basket, IBasket, IBasketItem, IBasketTotal } from '../shared/models/basket';
+import { IDeliveryMethod } from '../shared/models/deliveryMethod';
 import { Product } from '../shared/models/product';
 
 @Injectable({
@@ -14,13 +14,20 @@ import { Product } from '../shared/models/product';
 export class BasketService {
   private baseUrl: string = env.skinetCatalogApiBase;
   private basketSource: BehaviorSubject<IBasket> = new BehaviorSubject<IBasket>(null);
-   basket$: Observable<IBasket> = this.basketSource.asObservable();
+  basket$: Observable<IBasket> = this.basketSource.asObservable();
   private basketTotalSource: BehaviorSubject<IBasketTotal> = new BehaviorSubject<IBasketTotal>(null);
-   basketTotal$: Observable<IBasketTotal> = this.basketTotalSource.asObservable();
+  basketTotal$: Observable<IBasketTotal> = this.basketTotalSource.asObservable();
+  shipping:number = 0;
+
 
   constructor(private http: HttpClient,
-    private toastr: ToastrService,
-    private router: Router) { }
+    private toastr: ToastrService) { }
+
+  
+  setShippingPrice(deliveryMethod: IDeliveryMethod): void {
+    this.shipping = deliveryMethod.price;
+    this.calculateTotals();
+  }
 
   getBasket(id: string): Observable<void> {
     return this.http.get<IBasket>(`${this.baseUrl}basket/${id}`)
@@ -107,7 +114,7 @@ export class BasketService {
 
   private calculateTotals() {
     const basket: IBasket = this.getCurrentBasketValue();
-    const shipping: number = 0;
+    const shipping: number = this.shipping;
     const subTotal: number = basket.items.reduce((acc, i) => (i.price * i.quantity) + acc, 0);
     const total: number = subTotal + shipping;
     this.basketTotalSource.next({shipping, subTotal, total});
