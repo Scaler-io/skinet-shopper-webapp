@@ -1,0 +1,11 @@
+<div class="bg-primary text-white px-4 py-3 text-uppercase shadow-sm" style="font-weight:bold"> 
+    Shipping Address
+</div>
+<div class="p-4 border mb-3 shadow-sm mb-4" style="line-height: 10px;">
+    <h6>{{ order?.shipToAddress?.firstName }} {{ order?.shipToAddress?.lastName }}</h6> 
+    <hr/>
+    <p>{{ order?.shipToAddress?.street }}</p>
+    <p>{{ order?.shipToAddress?.city }}</p>
+    <p>{{ order?.shipToAddress?.state }}</p>
+    <p> Pincode: {{ order?.shipToAddress?.state }}</p>
+</div>

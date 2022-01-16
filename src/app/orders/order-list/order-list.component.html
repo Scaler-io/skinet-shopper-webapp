@@ -18,7 +18,7 @@
             </tr>
             
             <ng-template #orderItems>
-                <tr *ngFor="let order of orders">
+                <tr *ngFor="let order of orders" [routerLink]="['/orders', order.id]">
                     <td>#{{ order.id }}</td>
                     <td class="text-success">{{ order.orderDate | date: 'medium' }}</td>
                     <td>{{ order.total | rupee }}</td>

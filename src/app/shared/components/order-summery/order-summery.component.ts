@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BasketService } from 'src/app/basket/basket.service';
 import { IBasketTotal } from '../../models/basket';
+import { IOrder } from '../../models/order';
 
 @Component({
   selector: 'skinet-order-summery',
@@ -10,11 +11,15 @@ import { IBasketTotal } from '../../models/basket';
 })
 export class OrderSummeryComponent implements OnInit {
   basketTotal$: Observable<IBasketTotal>;
-
+  @Input() isForCheckout: boolean = true;
+  @Input() order: IOrder;
+  
   constructor(private basketService: BasketService) { }
 
   ngOnInit(): void {
-    this.basketTotal$ = this.basketService.basketTotal$;
+    if(this.isForCheckout){
+      this.basketTotal$ = this.basketService.basketTotal$;
+    }
   }
 
 }
