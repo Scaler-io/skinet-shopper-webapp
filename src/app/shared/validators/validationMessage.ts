@@ -11,7 +11,14 @@ const validationMessages: IValidationMessage[] = [
     {error: 'required', formControlName: ['newPassword'], message: 'Please create a password'},
     {error: 'pattern', formControlName: ['newPassword'], message: 'Please select a strong password'},
     {error:'required', formControlName: ['passwordConfirm'], message: 'Please enter password confirm'},
-    {error:'password_mismatch', formControlName: ['passwordConfirm'], message: 'Password did not match'}
+    {error:'password_mismatch', formControlName: ['passwordConfirm'], message: 'Password did not match'},
+
+    {error:'required', formControlName: ['firstName'], message: 'Please enter your first name'},
+    {error:'required', formControlName: ['lastName'], message: 'Please enter your last name'},
+    {error:'required', formControlName: ['street'], message: 'Please enter your street'},
+    {error:'required', formControlName: ['city'], message: 'Please enter your city'},
+    {error:'required', formControlName: ['state'], message: 'Please enter state'},
+    {error:'required', formControlName: ['zipCode'], message: 'Please enter the zip code'},
 ];
 
 export function validationMessage (formControlName: string, formGroup: FormGroup): string {

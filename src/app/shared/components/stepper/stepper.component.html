@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card stepper-card shadow">
+        <div class="card-header">
+            <ul class="nav nav-pills nav-justified">
+                <li class="nav-item" *ngFor="let step of steps; let i = index">
+                    <button 
+                        [class.active]="selectedIndex === i"
+                        class="nav-link text-uppercase font-weight-bold btn-block"
+                        (click)="onClick(i)"
+                        [disabled]="!step.completed"
+                    >
+                        <span class="fa" [ngClass]="step.completed ? 'fa-check-circle-o text-success' : ''"></span>    
+                    {{ step.label }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div>
+                <ng-container [ngTemplateOutlet]="selected.content">
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

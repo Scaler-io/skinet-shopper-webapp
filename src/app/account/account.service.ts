@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable, of, ReplaySubject } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
+import { IAddress } from '../shared/models/address';
 import { IUser } from '../shared/models/user';
 
 @Injectable({
@@ -65,5 +66,13 @@ export class AccountService {
     localStorage.removeItem('token');
     this.currentUserSource.next(null);
     this.router.navigateByUrl('/');
+  }
+
+  getUserAddress(): Observable<IAddress>{
+    return this.http.get<IAddress>(`${this.baseUrl}account/address`);
+  }
+
+  updateUserAddress(address: IAddress): Observable<IAddress> {
+    return this.http.put<IAddress>(`${this.baseUrl}account/address`, address);
   }
 }

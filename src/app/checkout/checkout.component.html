@@ -1,3 +1,23 @@
-<div class="container mt-5">
-    <h1>Only authorised user can see this page </h1>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-9">
+            <skinet-stepper [linearModeSelected]="false" #skinetStepper>
+                <cdk-step label="Address" [completed]="(checkoutForm.get('addressFormGroup')).valid">
+                    <skinet-checkout-address [checkoutForm]="checkoutForm"></skinet-checkout-address>
+                </cdk-step>
+                <cdk-step label="Delivery" [completed]="(checkoutForm.get('deliveryFormGroup')).valid">
+                    <skinet-checkout-delivery [checkoutForm]="checkoutForm"></skinet-checkout-delivery>
+                </cdk-step>
+                <cdk-step label="Review">
+                    <skinet-checkout-review></skinet-checkout-review>
+                </cdk-step>
+                <cdk-step label="Payment">
+                    <skinet-checkout-payment [checkoutForm]="checkoutForm"></skinet-checkout-payment>
+                </cdk-step>
+            </skinet-stepper>
+        </div>
+        <div class="col-md-3">
+           <skinet-order-summery></skinet-order-summery>
+        </div>
+    </div>
 </div>
