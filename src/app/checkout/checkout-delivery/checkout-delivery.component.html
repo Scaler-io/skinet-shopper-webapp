@@ -4,9 +4,9 @@
         <div class="col-md-6 form-group" *ngFor="let method of deliveryMethods">
             <div class="form-check mb-3" style="padding-left: 50px">
                 <input type="radio"
-                    id="{{ method.shortName }}"
+                    id="{{ method.id }}"
                     (click)="setShippingPrice(method)"
-                    value="{{ method.shortName }}"
+                    value="{{ method.id }}"
                     formControlName="deliveryMethod" 
                     class="form-check-input"    
                 >

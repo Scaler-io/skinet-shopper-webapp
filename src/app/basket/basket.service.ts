@@ -96,7 +96,13 @@ export class BasketService {
     }
   }
 
-  deleteBasket(basket: IBasket) {
+  deleteBasketLocally(id: string){
+    this.basketSource.next(null);
+    this.basketTotalSource.next(null);
+    localStorage.removeItem('basket_id');
+  }
+
+  deleteBasket(basket: IBasket): void {
     this.http.delete(`${this.baseUrl}basket/${basket.id}`)
       .subscribe({
         next: () => {
@@ -112,7 +118,7 @@ export class BasketService {
       });
   }
 
-  private calculateTotals() {
+  private calculateTotals(): void {
     const basket: IBasket = this.getCurrentBasketValue();
     const shipping: number = this.shipping;
     const subTotal: number = basket.items.reduce((acc, i) => (i.price * i.quantity) + acc, 0);
