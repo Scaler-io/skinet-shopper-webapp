@@ -15,6 +15,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
 import { RouterModule } from '@angular/router';
+import { FormatSkinetOrderIdPipe } from './pipes/format-skinet-order-id.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     ErrorMessageComponent,
     TextInputComponent,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+    FormatSkinetOrderIdPipe
   ],
   imports: [
     CommonModule,
@@ -49,11 +51,14 @@ import { RouterModule } from '@angular/router';
     PagingHeaderComponent,
     PaginatorComponent,
     OrderSummeryComponent,
-    PrependRupeeSymbolPipe,
     ErrorMessageComponent,
     TextInputComponent,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+
+    // pipe
+    PrependRupeeSymbolPipe,
+    FormatSkinetOrderIdPipe,
   ]
 })
 export class SharedModule { }
