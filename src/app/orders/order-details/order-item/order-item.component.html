@@ -1,0 +1,25 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <table class="table product-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="{{ orderItem.pictureUrl }}" class="img-fluid" style="max-width:80px">
+                    </td>
+                    <td>
+                        <h5>{{ orderItem.productName }}</h5>
+                        <p>Price - {{ orderItem.price | rupee }}</p>
+                    </td>
+                    <td>
+                        <span class="d-block mb-1">Qty</span>
+                        <span class="d-block" style="font-size: .8em;">{{ orderItem.quantity }}</span>
+                    </td>
+                    <td>
+                        <span class="d-block mb-1">Subtotal</span>
+                        <span class="d-block" style="font-size: .8em;">{{ orderItem.price *  orderItem.quantity | rupee }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

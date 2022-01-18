@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <skinet-order-item *ngFor="let item of order.orderItems" [orderItem]="item"></skinet-order-item>
+        </div>
+        <div class="col-md-4">
+            <skinet-order-shipping-address [order]="order"></skinet-order-shipping-address>
+            <skinet-order-summery [isForCheckout]="false" [order]="order"></skinet-order-summery>
+        </div>
+    </div>
+</div>

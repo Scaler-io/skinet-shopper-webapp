@@ -2,21 +2,48 @@
     Order Summary
 </div>
 <div class="p-4 border mb-3 shadow-sm">
-    <p class="mb-4" style="font-style: italic;">
-        Shipping cost will be added depending on choices made during checkout.
-    </p>
-    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async) as total">
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Order subtotal</strong>
-            <strong>{{total.subTotal | rupee }}</strong>
-        </li>
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Shipping and handling</strong>
-            <strong>{{total.shipping | rupee }}</strong>
-        </li>
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Total</strong>
-            <strong>{{total.total | rupee}}</strong>
-        </li>
-    </ul>
+    <ng-container *ngIf="isForCheckout">
+        <p class="mb-4" style="font-style: italic;">
+            Shipping cost will be added depending on choices made during checkout.
+        </p>
+        <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async) as total">
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Order subtotal</strong>
+                <strong>{{total.subTotal | rupee }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Shipping and handling</strong>
+                <strong>{{total.shipping | rupee }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total</strong>
+                <strong>{{total.total | rupee}}</strong>
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-container *ngIf="!isForCheckout && order">
+        <ul class="list-unstyled mb-4">
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Order subtotal</strong>
+                <strong>{{order.subTotal | rupee }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Shipping and handling</strong>
+                <strong>{{order.shippingPrice | rupee }}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total</strong>
+                <strong>{{order.total | rupee}}</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Delivery status</strong>
+                <strong>
+                    <i class="fa" [ngClass]="order.status.toLowerCase() == 'pending' ? 'fa-hourglass-3 text-info': 'fa-check-circle text-success'">
+                        <span style="margin-left: 10px;" >{{ order.status }}</span>
+                    </i>
+                </strong>
+            </li>
+        </ul>
+    </ng-container>
 </div>
