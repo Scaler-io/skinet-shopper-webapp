@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   skinetCatalogApiBase : 'http://localhost:5000/api/v1/',
   skinetCatalogApiBaseV2: 'http://localhost:5000/api/v2/',
+
+  stripePublishableKey: 'pk_test_51KJKVKSGyQ2RxmUxuCknWVFDtikCmLIoA6Jy2MAgbYrAQ92CUUMw61FZo83l3vTx7HQZCoBLfGg1s4V5ulewI4Aa00XMEQG2M1'
 };
 
 /*
