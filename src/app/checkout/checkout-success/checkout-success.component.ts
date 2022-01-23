@@ -16,8 +16,6 @@ export class CheckoutSuccessComponent implements OnInit {
     const state = navigation?.extras?.state;
     if(state){
       this.order = state as IOrder;
-    }else{
-      
     }
   }
 

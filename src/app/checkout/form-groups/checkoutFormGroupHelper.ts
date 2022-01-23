@@ -18,6 +18,6 @@ export class CheckoutFormGroupHelper {
     }
 
     public static GetChildForm(parent: FormGroup, child: string): FormGroup {
-        return <FormGroup> parent?.get(child);
+        return parent?.get(child) as FormGroup;
     } 
 }

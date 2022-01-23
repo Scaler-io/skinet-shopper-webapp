@@ -19,6 +19,8 @@ const validationMessages: IValidationMessage[] = [
     {error:'required', formControlName: ['city'], message: 'Please enter your city'},
     {error:'required', formControlName: ['state'], message: 'Please enter state'},
     {error:'required', formControlName: ['zipCode'], message: 'Please enter the zip code'},
+
+    {error: 'required', formControlName: ['nameOnCard'], message: 'Please enter card holder name'}
 ];
 
 export function validationMessage (formControlName: string, formGroup: FormGroup): string {

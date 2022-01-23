@@ -13,6 +13,8 @@ import { Product } from '../shared/models/product';
 })
 export class BasketService {
   private baseUrl: string = env.skinetCatalogApiBase;
+  private baseUrl2: string = env.skinetCatalogApiBaseV2
+
   private basketSource: BehaviorSubject<IBasket> = new BehaviorSubject<IBasket>(null);
   basket$: Observable<IBasket> = this.basketSource.asObservable();
   private basketTotalSource: BehaviorSubject<IBasketTotal> = new BehaviorSubject<IBasketTotal>(null);
@@ -23,10 +25,22 @@ export class BasketService {
   constructor(private http: HttpClient,
     private toastr: ToastrService) { }
 
+  craetePaymentIntent(): Observable<void>{
+    return this.http.post<IBasket>(this.baseUrl2 + 'payment/' + this.getCurrentBasketValue().id, {})
+      .pipe(map(
+        (basket: IBasket) => {
+          this.basketSource.next(basket);
+        }
+      ));
+  }
   
   setShippingPrice(deliveryMethod: IDeliveryMethod): void {
     this.shipping = deliveryMethod.price;
+    const basket = this.getCurrentBasketValue();
+    basket.deliveryMethodId = deliveryMethod.id;
+    basket.shippingPrice = deliveryMethod.price;
     this.calculateTotals();
+    this.setBasket(basket);
   }
 
   getBasket(id: string): Observable<void> {
@@ -34,6 +48,7 @@ export class BasketService {
       .pipe(
         map((basket: IBasket) => {
           this.basketSource.next(basket);
+          this.shipping = basket.shippingPrice;
           this.calculateTotals();
         })
       )
